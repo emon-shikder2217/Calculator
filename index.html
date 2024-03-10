@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" disabled placeholder="0">
+    <div class="buttons">
+  <tr>
+    <button value="AC" onclick="clearDisplay()" class="c">AC</button>
+    
+    <button value="c" onclick="removeLast()" class="b">&#9003;</button>
+    <button value="9" onclick="addToDisplay('/')" class="devide">÷</button>
+    <button value="+" onclick="addToDisplay('*')" class="multiplication">X</button>
+  </tr> 
+  <tr>
+    <button value="4" onclick="addToDisplay('7')">7</button>
+    <button value="5" onclick="addToDisplay('8')">8</button>
+    <button value="6" onclick="addToDisplay('9')">9</button>
+    <button value="*" onclick="addToDisplay('+')" class="plus">+</button>
+  </tr>
+  <tr>
+    <button value="1" onclick="addToDisplay('4')">4</button>
+    <button value="2" onclick="addToDisplay('5')">5</button>
+    <button value="3" onclick="addToDisplay('6')">6</button>
+    <button value="-" onclick="addToDisplay('-')" class="substraction">-</button>
+  </tr>
+  <tr>
+    <button value="0" onclick="addToDisplay('1')">1</button>
+    <button value="." onclick="addToDisplay('2')">2</button>
+    <button value="3" onclick="addToDisplay('3')">3</button>
+    <button value="." onclick="addToDisplay('.')" class="dot">.</button>
+  </tr>
+  <tr>
+    <button value="0" onclick="addToDisplay('0')">0</button>
+    <button value="%" onclick="calculatePercentage('%')" class="pers">%</button>
+    <button value="π" onclick="displayPi()" class="pi">𝜋</button>
+    <button value="=" onclick="calculateResult()" class="equal">=</button>
+
+    </div>
+      
+</div>
+
+
+  <script>
+    function addToDisplay(value) {
+      document.getElementById('result').value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById('result').value = '';
+    }
+
+    function displayPi() {
+      document.getElementById('result').value += Math.PI.toFixed(10);
+    }
+
+    function calculatePercentage() {
+      var value = eval(document.getElementById('result').value);
+      document.getElementById('result').value = (value / 100).toFixed(10);
+    }
+
+    function calculateResult() {
+      var value = eval(document.getElementById('result').value);
+      document.getElementById('result').value = value.toFixed(10);
+    }
+
+    function removeLast() {
+    var display = document.getElementById('result').value;
+    document.getElementById('result').value = display.slice(0, -1);
+}
+  </script>
+</body>
+</html>
